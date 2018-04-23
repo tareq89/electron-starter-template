@@ -1,0 +1,50 @@
+{
+    "name": "yourappname",
+    "version": "0.0.1",
+    "license": "MIT",
+    "description": "trying to create distribution of electron app",
+    "author": {
+        "name": "muhammed tareq aziz",
+        "email": "tareqaziz.aust.cse@gmail.com"
+    },
+    "homepage": "https://github.com/tareq89",
+    "main": "./app/main.js",
+    "scripts": {
+      "postinstall": "install-app-deps",
+      "start": "npm install && electron ./app",
+      "pack": "build --dir",
+      "dist": "build"
+    },
+    "build": {
+      "appId": "yourappid",      
+      "dmg": {
+        "contents": [
+          {
+            "x": 110,
+            "y": 150
+          },
+          {
+            "x": 240,
+            "y": 150,
+            "type": "link",
+            "path": "/Applications"
+          }
+        ]
+      },
+      "linux": {
+        "target": [
+          "AppImage",
+          "deb"
+        ]
+      },
+      "win": {
+        "target": "squirrel",
+        "icon": "build/icon.ico"
+      }
+    },
+    "dependencies": {},
+    "devDependencies": {
+      "electron": "latest",
+      "electron-builder": "^20.10.0"
+    }
+  }
